@@ -1,5 +1,6 @@
 #!/bin/bash
-GAME_LIST=$(lutris -l | grep "|" | awk 'BEGIN {FS="|"}{print $3}' | fuzzel -d --placeholder "Launch game" | xargs)
+GAME_LIST=$(lutris -l | grep "|" | awk 'BEGIN {FS="|"}{print $3}' | xargs -n 1 | fuzzel -d --placeholder "Launch game")
 if [ -n "$GAME_LIST" ]; then
+  echo $GAME_LIST
   lutris lutris:rungame/$GAME_LIST
 fi
