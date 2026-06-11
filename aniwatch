@@ -1,6 +1,6 @@
 #!/bin/bash
 ANIME_DIR="/mnt/hdd/Animes"
-FUZZEL_SEL=$(ls "$ANIME_DIR" | fuzzel -d)
+FUZZEL_SEL=$(ls "$ANIME_DIR" | fuzzel -d --placeholder "Select anime to watch")
 if [ -n "$FUZZEL_SEL" ]; then
   mpv "$ANIME_DIR/$FUZZEL_SEL"
 fi
